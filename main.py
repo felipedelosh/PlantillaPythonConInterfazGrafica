@@ -10,6 +10,8 @@ class Software:
         self.controller = Controller()
         self.screem = Tk()
         self.canvas = Canvas(self.screem)
+        self.lblBannerProgram = Label(self.canvas, text="This is a main banner")
+        self.lblFooterProgram = Label(self.canvas, text="This is a main Footer")
 
 
         self.vizualizedAndRun()
@@ -22,6 +24,8 @@ class Software:
         self.canvas['height'] = 480
         self.canvas['bg'] = "snow"
         self.canvas.place(x=0, y=0)
+        self.lblBannerProgram.place(x=20, y=20)
+        self.lblFooterProgram.place(x=200, y=450)
 
 
         self.screem.mainloop()
