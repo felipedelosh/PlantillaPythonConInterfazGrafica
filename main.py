@@ -2,6 +2,7 @@
 FelipedelosH
 
 """
+import re
 from tkinter import *
 from controller import *
 
@@ -28,7 +29,19 @@ class Software:
         self.lblFooterProgram.place(x=200, y=450)
 
 
+        print(self.rtnArcheveInfo("archive.txt"))    
+
         self.screem.mainloop()
+
+    def rtnArcheveInfo(self, path):
+        info = None
+        try:
+            f = open(path, 'r', encoding="utf-8")
+            return f.read()
+        except:
+            return info
+
+        pass
 
 
 s = Software()
