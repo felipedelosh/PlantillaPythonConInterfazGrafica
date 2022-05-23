@@ -30,6 +30,8 @@ class Software:
 
 
         print(self.controller.rtnArcheveInfo("archive.txt"))    
+        print("================")
+        print(self.controller.rtnArchieveFilesNames())
 
         self.screem.mainloop()
 
