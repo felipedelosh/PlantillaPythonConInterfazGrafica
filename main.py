@@ -17,7 +17,9 @@ class Software:
         self.lblBannerProgram = Label(self.canvas, text="This is a main banner")
         self.lblFooterProgram = Label(self.canvas, text="This is a main Footer")
 
-
+        # DEMO
+        self._demo()
+        # DEMO
         self.vizualizedAndRun()
 
 
@@ -31,16 +33,16 @@ class Software:
         self.lblBannerProgram.place(x=20, y=20)
         self.lblFooterProgram.place(x=200, y=450)
 
-
-        print(self.controller.rtnArcheveInfo("archive.txt"))    
-        print("================")
-        print(self.controller.rtnArchieveFilesNames())
-
         self.screem.after(0, self._refreshWindow)
         self.screem.mainloop()
 
     def _refreshWindow(self):
         self.screem.after(60, self._refreshWindow)
 
+    def _demo(self):
+        print("This is a demo app")
+        print(self.controller.getTextInFile("data/arc nr1.txt"))    
+        print("================")
+        print(self.controller.getAllFilesNamesByExt("data", ".txt"))
 
 s = Software()

@@ -21,7 +21,7 @@ class Controller:
         print(f"Config: {self.config._data}")
         pass
 
-    def rtnArcheveInfo(self, path):
+    def getTextInFile(self, path):
         info = None
         try:
             f = open(path, 'r', encoding="utf-8")
@@ -30,17 +30,15 @@ class Controller:
             return info
 
 
-    def rtnArchieveFilesNames(self):
+    def getAllFilesNamesByExt(self, path, ext):
         """
-        Return all files names of data folder
+        Return all files names of data folder with the specified extension
         """
         try:
-            path = os.getcwd() + "/data"
-
             filesNames = []
             for i in scandir(path):
                 if i.is_file():
-                    if ".txt" in i.name:
+                    if ext in i.name:
                         filesNames.append(i.name)
 
             return filesNames
