@@ -2,14 +2,23 @@
 FelipedelosH
 
 
-
+main controller
 """
+import sys
 import os
 from os import scandir
 
+# INFRAESTRUCTURE
+from src.infraestructure.configManager import ConfigManager
+
+
 class Controller:
     def __init__(self) -> None:
+        self.path = str(os.path.abspath(os.path.dirname(sys.argv[0])))
+        self.config = ConfigManager()
         print("Gretting from Controller")
+        print(f"MAIN Path: {self.path}")
+        print(f"Config: {self.config._data}")
         pass
 
     def rtnArcheveInfo(self, path):

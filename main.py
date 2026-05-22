@@ -10,6 +10,8 @@ from src.controllers.controller import *
 class Software:
     def __init__(self) -> None:
         self.controller = Controller()
+        self._w = self.controller.config._data.get("window_w")
+        self._h = self.controller.config._data.get("window_h")
         self.screem = Tk()
         self.canvas = Canvas(self.screem)
         self.lblBannerProgram = Label(self.canvas, text="This is a main banner")
@@ -20,10 +22,10 @@ class Software:
 
 
     def vizualizedAndRun(self):
-        self.screem.title("Program Title")
-        self.screem.geometry("720x480")
-        self.canvas['width'] = 720
-        self.canvas['height'] = 480
+        self.screem.title(self.controller.config._data.get("title_app"))
+        self.screem.geometry(f"{self._w}x{self._h}")
+        self.canvas['width'] = self._w
+        self.canvas['height'] = self._h
         self.canvas['bg'] = "snow"
         self.canvas.place(x=0, y=0)
         self.lblBannerProgram.place(x=20, y=20)
@@ -34,7 +36,11 @@ class Software:
         print("================")
         print(self.controller.rtnArchieveFilesNames())
 
+        self.screem.after(0, self._refreshWindow)
         self.screem.mainloop()
+
+    def _refreshWindow(self):
+        self.screem.after(60, self._refreshWindow)
 
 
 s = Software()
