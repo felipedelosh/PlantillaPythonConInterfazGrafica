@@ -1,10 +1,11 @@
 """
 FelipedelosH
 
+
+This is a example of blank template
 """
-import re
 from tkinter import *
-from controller import *
+from src.controllers.controller import *
 
 class Software:
     def __init__(self) -> None:
@@ -34,8 +35,6 @@ class Software:
         print(self.controller.rtnArchieveFilesNames())
 
         self.screem.mainloop()
-
-
 
 
 s = Software()
